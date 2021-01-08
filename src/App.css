@@ -13,9 +13,18 @@
   }
 }
 
+/* new code */
+/* @media screen and (max-width: 550px) {
+  .color-container {
+    flex-wrap: wrap;
+  }
+  .color {
+    height: 50vh;
+  }
+ */
+
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  min-height: 79vh;
   display: flex;
   flex-direction: column;
   align-items: center;
