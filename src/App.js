@@ -69,7 +69,7 @@ function App() {
           <h2 style={{marginBottom:"1em"}}>Using Neural Networks to discriminate between Benign and Malignant Moles
           </h2>
           <Row>
-            <Col xs={6} md={4}>
+            <Col>
             <a style={{color: "white"}} href="CI_Report.pdf" download target="_blank">
               <Image width="93" src="paper_image.png" thumbnail/>
               <p style={{
@@ -81,7 +81,7 @@ function App() {
                 fontWeight: "1500"
                 }}>Paper</p></a>
             </Col>
-            <Col xs={6} md={4}>
+            <Col>
             <a style={{color: "white"}} href="skin-moles.apk" download target="_blank">
               <Image width="140" src="apk3.png"/>
               <p style={{
@@ -93,7 +93,7 @@ function App() {
                 fontWeight: "1500",
                 }}>skin-moles.apk</p></a>
             </Col>   
-            <Col xs={6} md={4}>
+            <Col>
             <div onClick={() => copyToClipboard()}>
               <Image width="93" src="git.png"/></div>
               <p style={{
