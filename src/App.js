@@ -14,9 +14,9 @@ function App() {
   const [backgroundColor, setBackgroundColor] = useState();
   /* var bgColor= ["rgb(116, 128, 233)",
      "rgb(116, 120, 233)", "rgb(116, 140, 233)", "rgb(116, 110, 233)","rgb(116, 140, 233)"]; */
-    var bgColor= ["rgb(186, 116, 233)", "rgb(116, 128, 233)",
-     "rgb(116, 233, 136)", "rgb(255 193 7)", "rgb(255 155 44)",
-    "rgb(255 82 82)", "rgb(116, 206, 233)"];
+    var bgColor= ["rgb(116, 128, 233)",
+     "rgb(68, 184, 64)", "rgb(255, 133, 33)",
+    "rgb(255 82 82)", "rgb(73, 178, 209)"];
 
     const copyToClipboard = (e) => {
       /* textAreaRef.current.select(); */
