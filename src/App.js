@@ -92,9 +92,21 @@ function App() {
                 marginTop: "0.5em",
                 fontWeight: "1500",
                 }}>skin-moles.apk</p></a>
-            </Col>   
+            </Col>
             <Col>
-            <div onClick={() => copyToClipboard()}>
+            <a style={{color: "white"}} href="https://github.com/mbirkholzupc/mai_ci_ddmr" target="_blank">
+              <Image width="140" src="git.png"/>
+              <p style={{
+                position:"relative",
+                fontSize: "0.8em",
+                fontWeight: "500",
+                textAlign: "center",
+                marginTop: "0.5em",
+                fontWeight: "1500",
+                }}>Code</p></a>
+            </Col>     
+            {/*<Col>
+             <div onClick={() => copyToClipboard()}>
               <Image width="93" src="git.png"/></div>
               <p style={{
                 position:"relative",
@@ -103,9 +115,9 @@ function App() {
                 textAlign: "center",
                 marginTop: "0.5em",
                 fontWeight: "1500", 
-                }}> {copySuccess}</p>
+                }}> {copySuccess}</p> 
                 
-            </Col>
+            </Col>*/}
           </Row>
         </Container>      
         </p>
