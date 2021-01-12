@@ -70,7 +70,7 @@ function App() {
           </h2>
           <Row>
             <Col>
-            <a style={{color: "white"}} href="CI_Report.pdf" download target="_blank">
+            <a style={{color: "white"}} href="Using CNNs to discriminate between benign and malignant moles.pdf" download target="_blank">
               <Image width="93" src="paper_image.png" thumbnail/>
               <p style={{
                 position:"relative",
