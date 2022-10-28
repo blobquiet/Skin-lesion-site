@@ -51,7 +51,7 @@ function App() {
           className={`animate__animated animate__bounce ${fadeClassOut} ${displayNone}`}
           style={{ fontSize: "2.5em", position: "absolute" }}
         >
-          This is our CI project!
+          First place in 2019 SIIM-ISIC skin lesion challenge
         </h1>
         <p        
           className={`animate__animated animate__delay-4s animate__fadeIn `}
@@ -135,7 +135,7 @@ function App() {
             marginTop: "0.8em",
           }}
         >
-          Michael Birkholz
+          Petia Ivanona Radeva
         </h3>
         <p
           style={{
@@ -147,7 +147,7 @@ function App() {
             paddingRight: "0.5em",
           }}
         >
-          Universitat Politècnica de Catalunya
+          Universitat de Barcelona
         </p>
       </div>
       <p
@@ -159,7 +159,7 @@ function App() {
           color: "black",
         }}
       >
-        michael.birkholz@estudiantat.upc.edu
+        radevap@gmail.com
       </p>
           </Col>
           <Col>
@@ -196,7 +196,7 @@ function App() {
           color: "black",
         }}
       >
-        david.duenas.gaviria@estudiantat.upc.edu
+        blobquiet@gmail.com
       </p>
           </Col>
           <Col>
@@ -209,7 +209,7 @@ function App() {
             marginTop: "0.8em",
           }}
         >
-          David Fernández Aldana
+          Md Mostafa Kamal Saker
         </h3>
         <p
           style={{
@@ -221,7 +221,7 @@ function App() {
             paddingRight: "0.5em",
           }}
         >
-          Universitat Politècnica de Catalunya
+          University of Oxford
         </p>
       </div>
       <p
@@ -233,45 +233,9 @@ function App() {
           color: "black",
         }}
       >
-        david.fernandez.aldana@estudiantat.upc.edu
+        m.kamal.sarker@gmail.com
       </p>
           </Col>
-          <Col>
-          <div>
-        <h3
-          style={{
-            fontSize: "1em",
-            fontWeight: "800",
-            textAlign: "center",
-            marginTop: "0.8em",
-          }}
-        >
-          Ronald Rivera Torres
-        </h3>
-        <p
-          style={{
-            fontSize: "0.7em",
-            fontWeight: "500",
-            textAlign: "center",
-            marginTop: "0.5em",
-            paddingLeft: "0.5em",
-            paddingRight: "0.5em",
-          }}
-        >
-          Universitat Politècnica de Catalunya
-        </p>
-      </div>
-      <p
-        className="animate__animated animate__delay-4s animate__fadeIn"
-        style={{
-          fontSize: "0.7em",
-          fontWeight: "20",
-          textAlign: "center",
-          color: "black",
-        }}
-      >
-        ronald.rivera@estudiantat.upc.edu
-      </p></Col>
         </Row>
       </Container>
       
