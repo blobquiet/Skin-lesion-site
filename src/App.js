@@ -73,8 +73,7 @@ function App() {
         >
           <Container>
             <h2 style={{ marginBottom: "1em" }}>
-              Using Neural Networks to discriminate between Benign and Malignant
-              Moles
+              Superconverging Deep Learning Model for Skin Lesion Classification
             </h2>
             <Row>
               <Col>
