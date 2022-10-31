@@ -106,7 +106,7 @@ function App() {
                   download
                   target="_blank"
                 >
-                  <Image width="140" src="skin-icon.png" />
+                  <Image width="180" src="skin-icon.png" />
                   <p
                     style={{
                       position: "relative",
