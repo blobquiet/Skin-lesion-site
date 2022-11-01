@@ -2,6 +2,7 @@ import React, { useRef, useState, useEffect } from "react";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Image, Row, Col, Container } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 function App() {
   const [displayNone, setDisplayNone] = useState("");
@@ -42,13 +43,6 @@ function App() {
 
   return (
     <>
-      {/* <div id="counter-app">
-     <div id="buttons-container" className={`container ${fadeClassIn}`}>
-      <button id="increment-button" className="button" ><i className="fa fa-plus"></i></button>
-      <button id="decrement-button" className="button" ><i className="fa fa-minus"></i></button>
-      <button id="reset-button" className="button" ><i className="fa fa-refresh"></i></button>
-    </div> 
-  </div>*/}
       <div
         className="App App-header"
         style={{ backgroundColor: backgroundColor }}
@@ -57,8 +51,8 @@ function App() {
           className={`animate__animated animate__bounce ${fadeClassOut} ${displayNone}`}
           style={{ fontSize: "2.5em", position: "absolute" }}
         >
-          First place in 2019
-          <br /> SIIM-ISIC skin lesion challenge
+          First place in 2019 & 2020
+          <br /> SIIM-ISIC skin lesion challenges
         </h1>
         <p
           className={`animate__animated animate__delay-4s animate__fadeIn `}
@@ -75,7 +69,7 @@ function App() {
             <h2 style={{ marginBottom: "1em" }}>
               Superconverging Deep Learning Model for Skin Lesion Classification
             </h2>
-            <Row>
+            <Row xs={1} md={3}>
               <Col>
                 <a
                   style={{ color: "white" }}
@@ -84,7 +78,7 @@ function App() {
                   rel="noopener noreferrer"
                   target="_blank"
                 >
-                  <Image width="93" src="paper_image.png" thumbnail />
+                  <Image width="93" src="paper_image.png" thumbnail title="Click here to get the paper!"/>
                   <p
                     style={{
                       position: "relative",
@@ -93,20 +87,15 @@ function App() {
                       textAlign: "center",
                       marginTop: "0.5em",
                       fontWeight: "1500",
-                    }}
+                    }} title="Click here to get the paper!"
                   >
                     Paper
                   </p>
                 </a>
               </Col>
               <Col>
-                <a
-                  style={{ color: "white" }}
-                  href="skin-moles.apk"
-                  download
-                  target="_blank"
-                >
-                  <Image width="180" src="skin-icon.png" />
+                <Link style={{color: 'white'}} to="/classification">
+                  <Image width="180" src="skin-icon.png" title="Click here for online demo!"/>
                   <p
                     style={{
                       position: "relative",
@@ -115,21 +104,22 @@ function App() {
                       textAlign: "center",
                       marginTop: "0.5em",
                       fontWeight: "1500",
-                    }}
+                    }} title="Click here for online demo!"
                   >
-                    Skin Classification
-                    <br />
-                    Web App
+                    
+                      Skin Classification
+                      <br />
+                      Web App                    
                   </p>
-                </a>
+                </Link>
               </Col>
               <Col>
                 <a
                   style={{ color: "white" }}
                   href="https://github.com/blobquiet/SIIM-ISIC-Melanoma-Classification"
-                  target="_blank"
+                  target="_blank" title="Click here to get the code!"
                 >
-                  <Image width="140" src="git.png" />
+                  <Image width="130" src="git.png" />
                   <p
                     style={{
                       position: "relative",
@@ -138,7 +128,7 @@ function App() {
                       textAlign: "center",
                       marginTop: "0.5em",
                       fontWeight: "1500",
-                    }}
+                    }} title="Click here to get the code!"
                   >
                     Code
                   </p>
@@ -163,7 +153,7 @@ function App() {
       </div>
 
       <Container className="animate__animated animate__delay-2s animate__fadeIn">
-        <Row>
+        <Row xs={1} md={3}>
           <Col>
             <div>
               <h3
@@ -171,7 +161,7 @@ function App() {
                   fontSize: "1em",
                   fontWeight: "800",
                   textAlign: "center",
-                  marginTop: "0.8em",
+                  marginTop: "1.8em",
                 }}
               >
                 Petia Ivanona Radeva
@@ -179,7 +169,7 @@ function App() {
               <p
                 style={{
                   fontSize: "0.7em",
-                  fontWeight: "500",
+                  fontWeight: "800",
                   textAlign: "center",
                   marginTop: "0.5em",
                   paddingLeft: "0.5em",
@@ -192,7 +182,7 @@ function App() {
             <p
               className="animate__animated animate__delay-4s animate__fadeIn"
               style={{
-                fontSize: "0.7em",
+                fontSize: ".85em",
                 fontWeight: "20",
                 textAlign: "center",
                 color: "black",
@@ -208,7 +198,7 @@ function App() {
                   fontSize: "1em",
                   fontWeight: "800",
                   textAlign: "center",
-                  marginTop: "0.8em",
+                  marginTop: "1.8em",
                 }}
               >
                 David Dueñas
@@ -216,7 +206,7 @@ function App() {
               <p
                 style={{
                   fontSize: "0.7em",
-                  fontWeight: "500",
+                  fontWeight: "800",
                   textAlign: "center",
                   marginTop: "0.5em",
                   paddingLeft: "0.5em",
@@ -229,7 +219,7 @@ function App() {
             <p
               className="animate__animated animate__delay-4s animate__fadeIn"
               style={{
-                fontSize: "0.7em",
+                fontSize: "0.85em",
                 fontWeight: "20",
                 textAlign: "center",
                 color: "black",
@@ -245,7 +235,7 @@ function App() {
                   fontSize: "1em",
                   fontWeight: "800",
                   textAlign: "center",
-                  marginTop: "0.8em",
+                  marginTop: "1.8em",
                 }}
               >
                 Md Mostafa Kamal Saker
@@ -253,7 +243,7 @@ function App() {
               <p
                 style={{
                   fontSize: "0.7em",
-                  fontWeight: "500",
+                  fontWeight: "800",
                   textAlign: "center",
                   marginTop: "0.5em",
                   paddingLeft: "0.5em",
@@ -266,7 +256,7 @@ function App() {
             <p
               className="animate__animated animate__delay-4s animate__fadeIn"
               style={{
-                fontSize: "0.7em",
+                fontSize: "0.85em",
                 fontWeight: "20",
                 textAlign: "center",
                 color: "black",

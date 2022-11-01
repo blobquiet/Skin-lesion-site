@@ -1,0 +1,91 @@
+.Classification {
+    text-align: center;
+  }
+  
+  .Classification-header {
+    min-height: 100vh;
+    font-size: calc(10px + 2vmin);
+    color: white;
+  }
+.btn-classify {
+    margin-top: 1rem;
+    background-color: white;
+    color: black;
+    font-family: 'Comfortaa', cursive;
+    justify-content: center;
+  }
+
+.mb-3, .my-3 {
+  width: 40%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/**
+ * FilePond Custom Styles
+ */
+
+.filepond--root,
+.filepond--root .filepond--drop-label {  
+   box-sizing: border-box;
+   position: relative;
+   font-size: 1.3rem;
+   line-height: normal;
+   font-family: 'Comfortaa', cursive;
+   font-weight: 450;
+   text-align: left;
+   text-rendering: optimizeLegibility;
+   direction: ltr;
+   contain: layout style size;
+ }
+
+.filepond--drop-label {
+	color: #4c4e53;
+}
+
+.filepond--label-action {
+	text-decoration-color: #babdc0;
+}
+
+.filepond--panel-root {
+	border-radius: 2em;
+	background-color: #edf0f4;
+	height: 1em;
+}
+
+.filepond--item-panel {
+	background-color: #595e68;
+}
+
+.filepond--drip-blob {
+	background-color: #7f8a9a;
+}
+
+/*
+.filepond--root,
+.filepond--root .filepond--drop-label {
+  width: 30rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: #4c4e53;
+}
+*/
+
+/**
+ * Page Styles
+ */
+
+/*
+html {
+	padding:30vh 0 0;
+}
+
+body {
+	max-width: 20em;
+	margin: 0 auto;
+}
+  
+ */
