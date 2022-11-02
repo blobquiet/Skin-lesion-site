@@ -1,24 +1,19 @@
 .Classification {
     text-align: center;
-  }
-  
-  .Classification-header {
     min-height: 100vh;
     font-size: calc(10px + 2vmin);
     color: white;
   }
-.btn-classify {
-    margin-top: 1rem;
-    background-color: white;
-    color: black;
-    font-family: 'Comfortaa', cursive;
-    justify-content: center;
-  }
 
+h4{
+  font-family: 'Comfortaa', cursive;
+}
 .mb-3, .my-3 {
   width: 40%;
   margin-left: auto;
   margin-right: auto;
+
+  font-family: 'Comfortaa', cursive;
 }
 
 /**
@@ -29,7 +24,8 @@
 .filepond--root .filepond--drop-label {  
    box-sizing: border-box;
    position: relative;
-   font-size: 1.3rem;
+   font-size: calc(10px + 1vmin);
+   color: #4c4e53;
    line-height: normal;
    font-family: 'Comfortaa', cursive;
    font-weight: 450;

@@ -1,10 +1,12 @@
 import React, { useRef, useState, useEffect } from "react";
 import "./Classification.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Image, Row, Col, Container, Button, Form } from "react-bootstrap";
+import { Image, Row, Col, Container, Button, Form} from "react-bootstrap";
 
 import { renderToString } from 'react-dom/server';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
+
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 
 //---------------
@@ -91,34 +93,37 @@ function App() {
 
     const [files, setFiles] = useState([])
     return (
-      <div className="Classification Classification-header"
-      style={{ backgroundColor: backgroundColor }}>
-        <h2 style={{ fontSize: "1.5em", position: "center", paddingTop: "2em", marginBottom: "2.5rem" }}>
-              Skin Lesion Classification demo
+      <div className="Classification"
+      style={{ backgroundColor: backgroundColor, padding: "1.5em" }}>
+        <h2 style={{ fontSize: "1.5em", position: "center", marginBottom: "0.5em"}}>
+                  Skin Lesion Classification demo
         </h2>
-        <Container >
+        <Container style={{minWidth:"90%", background:"white", color:"black", padding:"1.5em", borderRadius:"0.6em"}}>
             <Row xs={1} md={2}>
               <Col>
                 <h4 style={{marginBottom:"2.2rem"}}>Patient-level information</h4>
                 <Form>    
-                    <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                    <Form.Check type="checkbox" label="Use matadata" />
+                    <Form.Group className="mb-3" controlId="formMetadata" disabled>
+                      <Form.Check style= {{fontSize: "0.7em" }} type="checkbox" label="Use matadata" />
                     </Form.Group>
 
-                    <Form.Group className="mb-3" controlId="formBasicEmail">
-                    <Form.Control type="age" placeholder="Age" />
+                    <Form.Group className="mb-3" controlId="formAge" disabled>
+                      <Form.Control type="age" placeholder="Age" />
                     </Form.Group>
 
-                    <Form.Group className="mb-3" controlId="formBasicEmail">
-                    <Form.Control type="age" placeholder="Gender" />
-                    </Form.Group>
+                    <Form.Control className="mb-3" as="select" disabled>
+                      <option>Sex</option>
+                      <option value="1">Male</option>
+                      <option value="2">Female</option>
+                    </Form.Control>
 
-                    <Form.Group className="mb-3" controlId="formBasicEmail">
-                    <Form.Control type="age" placeholder="Anatomical site" />
-                    </Form.Group>
-
-                    
-
+                    <Form.Control as="select" className="mb-3">
+                      <option>Anatomical site</option>
+                      <option value="1">Torso</option>
+                      <option value="2">Anterior torso</option>
+                      <option value="3">Posterior torso</option>
+                      <option value="4">Head/neck</option>
+                    </Form.Control>
                 </Form> 
               </Col>
               <Col>
@@ -167,7 +172,7 @@ function App() {
               </Col>
             </Row>
             <Row className="justify-content-center">
-                <Button variant="classify">Predict diagnosis!</Button>
+                <Button style={{fontFamily : "'Comfortaa', cursive"}} disabled>Predict</Button>
             </Row>
         </Container>
       </div>
