@@ -21,8 +21,8 @@ import 'filepond/dist/filepond.min.css'
 
 // Import Doka. For testing purpose only, if you're intrested in using Doka
 // in your project please purchase a license at https://pqina.nl/doka/
-import "../vendor/doka.min.css";
-import { create } from "../vendor/doka.esm.min";
+import "../../vendor/doka.min.css";
+import { create } from "../../vendor/doka.esm.min";
 
 
 // Import the Image EXIF Orientation and Image Preview plugins

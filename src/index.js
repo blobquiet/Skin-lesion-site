@@ -3,7 +3,8 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import './index.css';
 import App from './App';
-import Classification from './components/Classification';
+import Classification from './components/Classification/Classification';
+import Prediction from './components/Prediction/Prediction';
 import reportWebVitals from './reportWebVitals';
 
 
@@ -14,6 +15,7 @@ ReactDOM.render(
         <Route exact path="/" element={<App/>} />
         <Route path="/home" element={<App/>} />
         <Route path="/classification" element={<Classification/>} />
+        <Route path="/prediction" element={<Prediction/>} />
       </Routes>
     </Router>
   </React.StrictMode>,
