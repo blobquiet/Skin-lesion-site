@@ -70,6 +70,11 @@ function iconImage() {
   return renderToString(<Image width="250" src="skin-icon-drag.png" />);
 }
 
+function roundNearest5(num) {
+  // to get adequate age for meta model
+  return Math.round(num / 5) * 5;
+}
+
 //---------------
 function App() {
   const navigate = useNavigate();
@@ -139,11 +144,17 @@ function App() {
                 />
               </Form.Group>
 
-              <Form.Group className="mb-3" controlId="formAge" disabled>
-                <Form.Control type="age" placeholder="Age" />
+              <Form.Group className="mb-3" controlId="formAge">
+                <Form.Control
+                  type="number"
+                  placeholder="Age"
+                  min="0"
+                  max="100"
+                  step="any"
+                />
               </Form.Group>
 
-              <Form.Control className="mb-3" as="select" disabled>
+              <Form.Control className="mb-3" as="select">
                 <option>Sex</option>
                 <option value="1">Male</option>
                 <option value="2">Female</option>
@@ -159,9 +170,7 @@ function App() {
             </Form>
           </Col>
           <Col>
-            <h4 style={{ marginBottom: "2.2rem" }}>
-              Patient skin lesion image
-            </h4>
+            <h4 style={{ marginBottom: "2.2rem" }}>Upload skin lesion image</h4>
             <FilePond
               files={files}
               onupdatefiles={setFiles}
