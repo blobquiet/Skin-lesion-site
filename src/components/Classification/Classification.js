@@ -74,7 +74,6 @@ function roundNearest5(num) {
   // to get adequate age for meta model
   return Math.round(num / 5) * 5;
 }
-
 //---------------
 function App() {
   const navigate = useNavigate();
@@ -86,8 +85,14 @@ function App() {
   const handlePredict = () => {
     navigate("/prediction", { replace: true });
   };
+  const handleChange = () => {
+    disabled = enabled;
+    setEnabled(!disabled);
+  };
+  var disabled = true;
 
   const [backgroundColor, setBackgroundColor] = useState();
+  const [enabled, setEnabled] = useState();
   /* var bgColor= ["rgb(116, 128, 233)",
        "rgb(116, 120, 233)", "rgb(116, 140, 233)", "rgb(116, 110, 233)","rgb(116, 140, 233)"]; */
   var bgColor = [
@@ -101,6 +106,7 @@ function App() {
 
   useEffect(() => {
     setBackgroundColor(bgColor[Math.floor(Math.random() * bgColor.length)]);
+    setEnabled(disabled);
   }, []);
 
   const [files, setFiles] = useState([]);
@@ -141,6 +147,7 @@ function App() {
                   style={{ fontSize: "0.7em" }}
                   type="checkbox"
                   label="Use matadata"
+                  onChange={handleChange}
                 />
               </Form.Group>
 
@@ -151,16 +158,17 @@ function App() {
                   min="0"
                   max="100"
                   step="any"
+                  disabled={enabled}
                 />
               </Form.Group>
 
-              <Form.Control className="mb-3" as="select">
+              <Form.Control className="mb-3" as="select" disabled={enabled}>
                 <option>Sex</option>
                 <option value="1">Male</option>
                 <option value="2">Female</option>
               </Form.Control>
 
-              <Form.Control as="select" className="mb-3">
+              <Form.Control as="select" className="mb-3" disabled={enabled}>
                 <option>Anatomical site</option>
                 <option value="1">Torso</option>
                 <option value="2">Anterior torso</option>
