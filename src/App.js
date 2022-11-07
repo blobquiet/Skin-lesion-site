@@ -15,11 +15,12 @@ function App() {
   /* var bgColor= ["rgb(116, 128, 233)",
      "rgb(116, 120, 233)", "rgb(116, 140, 233)", "rgb(116, 110, 233)","rgb(116, 140, 233)"]; */
   var bgColor = [
-    "rgb(116, 128, 233)",
+    "rgb(255 82 82)",
+    /*"rgb(116, 128, 233)",
     "rgb(68, 184, 64)",
     "rgb(255, 133, 33)",
     "rgb(255 82 82)",
-    "rgb(73, 178, 209)",
+    "rgb(73, 178, 209)",*/
   ];
 
   const copyToClipboard = (e) => {
@@ -78,7 +79,12 @@ function App() {
                   rel="noopener noreferrer"
                   target="_blank"
                 >
-                  <Image width="93" src="paper_image.png" thumbnail title="Click here to get the paper!"/>
+                  <Image
+                    width="93"
+                    src="paper_image.png"
+                    thumbnail
+                    title="Click here to get the paper!"
+                  />
                   <p
                     style={{
                       position: "relative",
@@ -87,15 +93,20 @@ function App() {
                       textAlign: "center",
                       marginTop: "0.5em",
                       fontWeight: "1500",
-                    }} title="Click here to get the paper!"
+                    }}
+                    title="Click here to get the paper!"
                   >
                     Paper
                   </p>
                 </a>
               </Col>
               <Col>
-                <Link style={{color: 'white'}} to="/classification">
-                  <Image width="180" src="skin-icon.png" title="Click here for online demo!"/>
+                <Link style={{ color: "white" }} to="/classification">
+                  <Image
+                    width="180"
+                    src="skin-icon.png"
+                    title="Click here for online demo!"
+                  />
                   <p
                     style={{
                       position: "relative",
@@ -104,12 +115,12 @@ function App() {
                       textAlign: "center",
                       marginTop: "0.5em",
                       fontWeight: "1500",
-                    }} title="Click here for online demo!"
+                    }}
+                    title="Click here for online demo!"
                   >
-                    
-                      Skin Classification
-                      <br />
-                      Web App                    
+                    Skin Classification
+                    <br />
+                    Web App
                   </p>
                 </Link>
               </Col>
@@ -117,7 +128,8 @@ function App() {
                 <a
                   style={{ color: "white" }}
                   href="https://github.com/blobquiet/SIIM-ISIC-Melanoma-Classification"
-                  target="_blank" title="Click here to get the code!"
+                  target="_blank"
+                  title="Click here to get the code!"
                 >
                   <Image width="130" src="git.png" />
                   <p
@@ -128,7 +140,8 @@ function App() {
                       textAlign: "center",
                       marginTop: "0.5em",
                       fontWeight: "1500",
-                    }} title="Click here to get the code!"
+                    }}
+                    title="Click here to get the code!"
                   >
                     Code
                   </p>

@@ -3,17 +3,29 @@ import "./Prediction.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Row, Col, Container, Button, Table } from "react-bootstrap";
 import Plot from "react-plotly.js";
+import { useNavigate } from "react-router-dom";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 
 function App() {
+  const navigate = useNavigate();
+
+  const handleBack = () => {
+    navigate("/classification", { replace: true });
+  };
   const [backgroundColor, setBackgroundColor] = useState();
   /* var bgColor= ["rgb(116, 128, 233)",
        "rgb(116, 120, 233)", "rgb(116, 140, 233)", "rgb(116, 110, 233)","rgb(116, 140, 233)"]; */
   var bgColor = [
+    "rgb(73, 178, 209)",
+    /*
     "rgb(116, 128, 233)",
     "rgb(68, 184, 64)",
     "rgb(255, 133, 33)",
     "rgb(255 82 82)",
-    "rgb(73, 178, 209)",
+    "rgb(73, 178, 209)",*/
   ];
 
   useEffect(() => {
@@ -21,6 +33,26 @@ function App() {
   }, []);
 
   const [files, setFiles] = useState([]);
+
+  var pred = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0];
+  pred = [0.2, 0.5, 0.3, 0.2, 0.95, 0.1, 0.84, 0.5, 0.3];
+
+  if (window.innerWidth > 1200) {
+    var classes = [
+      "Actinic<br>keratosis",
+      "Basal cell<br>carcinoma",
+      "Benign <br>keratosis",
+      "Dermatofibroma",
+      "Melanoma",
+      "Melanocytic<br>nevus",
+      "Squamous<br>cell carcinoma",
+      "Unknown",
+      "Vascular<br>lesion",
+    ];
+  } else {
+    var classes = ["AK", "BCC", "BKL", "DF", "MEL", "NV", "SCC", "UNK", "VASC"];
+  }
+
   return (
     <div
       className="Classification"
@@ -40,11 +72,18 @@ function App() {
           borderRadius: "0.6em",
         }}
       >
+        <a
+          href=""
+          onClick={handleBack}
+          style={{ position: "fixed", top: "2em", left: "2em", color: "white" }}
+        >
+          <FontAwesomeIcon icon={faArrowLeft} size="fa-sm" />
+        </a>
         <Row className="justify-content-center">
-          <h4> Prediction: Melanoma (MEL)</h4>
+          <h4> Prediction: Melanoma</h4>
         </Row>
         <Row className="justify-content-center">
-          <p>
+          <p style={{ textAlign: "justify", margin: "0" }}>
             Based on the input data, our model predicts <b>Melanoma</b> with a{" "}
             <b>93%</b> confidance. A probability distribution chart of the
             model's inference is shown below:
@@ -53,29 +92,8 @@ function App() {
             data={[
               {
                 type: "bar",
-                x: [
-                  "AK",
-                  "BCC",
-                  "BKL",
-                  "DF",
-                  "MEL",
-                  "NV",
-                  "SCC",
-                  "UNK",
-                  "VASC",
-                ],
-                /*: [
-                  "Actinic<br>keratosis",
-                  "Basal cell<br>carcinoma",
-                  "Benign <br>keratosis",
-                  "Dermatofibroma",
-                  "Melanoma",
-                  "Melanocytic<br>nevus",
-                  "Squamous<br>cell carcinoma",
-                  "Unknown",
-                  "Vascular<br>lesion",
-                ],*/
-                y: [0.2, 0.5, 0.3, 0.2, 0.5, 0.3, 0.2, 0.5, 0.3],
+                x: classes,
+                y: pred,
                 marker: {
                   color: [
                     "rgba(13, 200, 58, 0.8)",
@@ -93,11 +111,7 @@ function App() {
               },
             ]}
             layout={{
-              transition: {
-                duration: 2000,
-                easing: "cubic-in-out",
-              },
-              autosize: true,
+              //autosize: true,
               title: "Model distribution",
               font: {
                 family: "Comfortaa, cursive",
@@ -125,51 +139,14 @@ function App() {
                 zeroline: false,
               },
             }}
-            style={{ width: "100%", height: "40%" }}
+            style={{ width: "100%", height: "100%" }}
             useResizeHandler={true}
             className="w-full h-full" // I am using tailwind.css here,
           />
         </Row>
         <Row className="justify-content-center">
           {window.innerWidth > 1200 ? (
-            <Table
-              responsive="sm"
-              striped
-              bordered
-              hover
-              style={{ fontSize: "calc(10px + 0.5vmin)" }}
-            >
-              <tbody>
-                <tr>
-                  <td>
-                    <b>Abbreviation</b>
-                  </td>
-                  <td>AK</td>
-                  <td>BCC</td>
-                  <td>BKL</td>
-                  <td>DF</td>
-                  <td>MEL</td>
-                  <td>NV</td>
-                  <td>SCC</td>
-                  <td>UNK</td>
-                  <td>VSC</td>
-                </tr>
-                <tr>
-                  <td>
-                    <b>Diagnosis</b>
-                  </td>
-                  <td>Actinic keratosis</td>
-                  <td>Basal cell carcinoma</td>
-                  <td>Benign keratosis</td>
-                  <td>Dermatofibroma</td>
-                  <td>Melanoma</td>
-                  <td>Melanocytic nevus</td>
-                  <td>Squamous cell carcinoma</td>
-                  <td>Unknown</td>
-                  <td>Vascular lesion</td>
-                </tr>
-              </tbody>
-            </Table>
+            <div></div>
           ) : (
             <Table
               responsive="sm"
@@ -224,17 +201,24 @@ function App() {
               </tbody>
             </Table>
           )}
-
-          <Button
-            style={{ fontFamily: "'Comfortaa', cursive", marginBottom: "1em" }}
+        </Row>
+        <Row className="justify-content-center">
+          {/*<Button
+            style={{
+              fontFamily: "'Comfortaa', cursive",
+              marginBottom: "1em",
+            }}
             disabled
           >
             Save as PDF
-          </Button>
-          <p>
-            <b>Disclaimer:</b> please be aware that this is only a demo and is
-            not intended to replace medical advice. Regardless of the outcome,
-            please visit your doctor.
+          </Button>*/}
+        </Row>
+        <Row>
+          <p style={{ textAlign: "justify", margin: "0" }}>
+            <b>Disclaimer:</b> please be aware that this is an integration of a{" "}
+            <b>Computer Aided Diagnosis (CAD) demo</b>, and is not intended to
+            replace medical advice. Regardless of the outcome, please visit your
+            doctor.
           </p>
         </Row>
       </Container>
