@@ -96,7 +96,7 @@ function App() {
       <div className="Classification"
       style={{ backgroundColor: backgroundColor, padding: "1.5em" }}>
         <h2 style={{ fontSize: "1.5em", position: "center", marginBottom: "0.5em"}}>
-                  Skin Lesion Classification demo
+                  Skin Lesion Classification Demo
         </h2>
         <Container style={{minWidth:"90%", background:"white", color:"black", padding:"1.5em", borderRadius:"0.6em"}}>
             <Row xs={1} md={2}>
