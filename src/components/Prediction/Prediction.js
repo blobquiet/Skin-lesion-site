@@ -3,8 +3,7 @@ import "./Prediction.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Row, Col, Container, Button, Table } from "react-bootstrap";
 import Plot from "react-plotly.js";
-import { useNavigate } from "react-router-dom";
-
+import { useNavigate, useLocation } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
@@ -32,10 +31,20 @@ function App() {
     setBackgroundColor(bgColor[Math.floor(Math.random() * bgColor.length)]);
   }, []);
 
-  const [files, setFiles] = useState([]);
-
-  var pred = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0];
-  pred = [0.2, 0.5, 0.3, 0.2, 0.95, 0.1, 0.84, 0.5, 0.3];
+  const { state } = useLocation();
+  //console.log(state);
+  var diagnosis = "";
+  var pred = [];
+  var score = 0;
+  try {
+    diagnosis = state.diagnosis;
+    pred = state.pred;
+    score = (state.score * 100).toFixed(2);
+  } catch (error) {
+    diagnosis = "";
+    pred = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0];
+    score = 0;
+  }
 
   if (window.innerWidth > 1200) {
     var classes = [
@@ -77,16 +86,18 @@ function App() {
           onClick={handleBack}
           style={{ position: "fixed", top: "2em", left: "2em", color: "white" }}
         >
-          <FontAwesomeIcon icon={faArrowLeft} size="fa-sm" />
+          <FontAwesomeIcon icon={faArrowLeft} />
         </a>
         <Row className="justify-content-center">
-          <h4> Prediction: Melanoma</h4>
+          <h4>
+            {" "}
+            <strong>Prediction: {diagnosis}</strong>
+          </h4>
         </Row>
         <Row className="justify-content-center">
           <p style={{ textAlign: "justify", margin: "0" }}>
-            Based on the input data, our model predicts <b>Melanoma</b> with a{" "}
-            <b>93%</b> confidance. A probability distribution chart of the
-            model's inference is shown below:
+            Based on the input data, our model predicts <b>{diagnosis}</b> with
+            a <b>{score}%</b> confidance.
           </p>
           <Plot
             data={[

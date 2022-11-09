@@ -87,16 +87,45 @@ function App() {
   };
 
   const handlePredict = () => {
-    navigate("/prediction", { replace: true });
+    navigate("/prediction", { state: predData_ });
   };
+
   const handleChange = () => {
     disabled = enabled;
     setEnabled(!disabled);
   };
   var disabled = true;
+  var pred = [];
+  var predData = {
+    diagnosis: "",
+    score: 0,
+    pred: [],
+  };
 
   const [backgroundColor, setBackgroundColor] = useState();
   const [enabled, setEnabled] = useState();
+  const [predictor_disabler, setPredictor] = useState();
+  const [predData_, setPredictions] = useState();
+
+  const [age, setAge] = useState(),
+    //onInputAge = ({ target: { age } }) => setAge(age);
+    onInputAge = (e) => {
+      e.preventDefault();
+      setAge(round5(e.target.value));
+      console.log(round5(e.target.value));
+    };
+  const [location, setLocation] = useState(),
+    onInputLocation = (e) => {
+      setLocation(e.target.value);
+      console.log(e.target.value);
+    };
+  //onInputLocation = function({ target: { location } }) setLocation(location);
+
+  const [sex, setSex] = useState(),
+    onInputSex = (e) => {
+      setSex(e.target.value);
+      console.log(e.target.value);
+    };
   /* var bgColor= ["rgb(116, 128, 233)",
        "rgb(116, 120, 233)", "rgb(116, 140, 233)", "rgb(116, 110, 233)","rgb(116, 140, 233)"]; */
   var bgColor = [
@@ -111,7 +140,13 @@ function App() {
   useEffect(() => {
     setBackgroundColor(bgColor[Math.floor(Math.random() * bgColor.length)]);
     setEnabled(disabled);
+    setPredictor(true);
+    setPredictions(predData_);
   }, []);
+
+  function round5(x) {
+    return x % 5 >= 2.5 ? parseInt(x / 5) * 5 + 5 : parseInt(x / 5) * 5;
+  }
 
   const [files, setFiles] = useState([]);
   return (
@@ -138,7 +173,7 @@ function App() {
           onClick={handleBack}
           style={{ position: "fixed", top: "2em", left: "2em", color: "white" }}
         >
-          <FontAwesomeIcon icon={faArrowLeft} size="fa-sm" />
+          <FontAwesomeIcon icon={faArrowLeft} />
         </a>
         <Row xs={1} md={2}>
           <Col>
@@ -160,24 +195,42 @@ function App() {
                   type="number"
                   placeholder="Age"
                   min="0"
-                  max="100"
+                  max="94"
                   step="any"
+                  onChange={onInputAge}
+                  defaultValue={"0"}
                   disabled={enabled}
                 />
               </Form.Group>
 
-              <Form.Control className="mb-3" as="select" disabled={enabled}>
+              <Form.Control
+                className="mb-3"
+                as="select"
+                onChange={onInputSex}
+                disabled={enabled}
+              >
                 <option>Sex</option>
-                <option value="1">Male</option>
-                <option value="2">Female</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
               </Form.Control>
 
-              <Form.Control as="select" className="mb-3" disabled={enabled}>
+              <Form.Control
+                as="select"
+                className="mb-3"
+                onChange={onInputLocation}
+                disabled={enabled}
+              >
                 <option>Anatomical site</option>
-                <option value="1">Torso</option>
-                <option value="2">Anterior torso</option>
-                <option value="3">Posterior torso</option>
-                <option value="4">Head/neck</option>
+                <option value="torso">Torso</option>
+                <option value="anterior torso">Anterior torso</option>
+                <option value="posterior torso">Posterior torso</option>
+                <option value="lateral torso">Lateral torso</option>
+                <option value="upper extremity">Upper extremity</option>
+                <option value="lower extremity">Lower extremity</option>
+                <option value="head/neck">Head/neck</option>
+                <option value="palms/soles">Palms/soles</option>
+                <option value="oral/genital">Oral/genital</option>
+                <option value="unknown">Unknown</option>
               </Form.Control>
             </Form>
           </Col>
@@ -189,8 +242,10 @@ function App() {
               onupdatefiles={setFiles}
               allowMultiple={true}
               maxFiles={1}
-              server="http://localhost:8080/predictmeta"
-              //server="http://172.17.0.2:8080//upload"
+              //server="http://localhost:8080/predictmeta"
+              server="http://localhost:8080/predict"
+              //server="http://localhost:8080/upload"
+              //server="http://172.17.0.2:8080/upload"
               //allowImageCrop={true}
 
               //allowFileTypeValidation={true}
@@ -203,11 +258,32 @@ function App() {
               imageResizeTargetHeight={256}
               imageResizeUpscale={true}
               imageResizeMode={"cover"}
-              allowFileMetadata={true}
+              allowFileMetadata={!enabled}
               fileMetadataObject={{
-                age: "30",
-                location: "upper extremity",
-                sex: "male",
+                age: age,
+                location: location,
+                sex: sex,
+              }}
+              onprocessfile={function(err, file) {
+                try {
+                  //handlePredict(); //only to predict after upload
+                  const { serverId } = file;
+                  const data = JSON.parse(serverId);
+                  //console.log(data);
+                  //console.log(data.label);
+                  //console.log(data.pred);
+                  //console.log(data.score * 100);
+
+                  predData.diagnosis = data.diagnosis;
+                  predData.pred = data.pred;
+                  predData.score = data.score;
+                  setPredictor(false);
+                  setPredictions(predData);
+                } catch (error) {}
+                //console.log("server id ", err, file.serverId);
+                //console.log("on process ", err, file)
+                // console.log(file.serverId,serverId,serverId.);
+                //console.log("predData", predData);
               }}
               // insert img bellow
               //onpreparefile={(file, output) => {
@@ -233,7 +309,7 @@ function App() {
           <Button
             onClick={handlePredict}
             style={{ fontFamily: "'Comfortaa', cursive" }}
-            disabled
+            disabled={predictor_disabler}
           >
             Predict
           </Button>
