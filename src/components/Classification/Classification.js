@@ -32,6 +32,7 @@ import FilePondPluginImagePreview from "filepond-plugin-image-preview";
 import FilePondPluginImageResize from "filepond-plugin-image-resize";
 import FilePondPluginImageTransform from "filepond-plugin-image-transform";
 import FilePondPluginImageEdit from "filepond-plugin-image-edit";
+import FilePondPluginFileMetadata from "filepond-plugin-file-metadata";
 //import FilePondPluginImageCrop from 'filepond-plugin-image-crop';
 //import FilePondPluginFileValidateType from 'filepond-plugin-image-validate-size';
 //import FilePondPluginFileEncode from 'filepond-plugin-file-encode';
@@ -54,7 +55,10 @@ registerPlugin(
   FilePondPluginImageTransform,
 
   // The Image Edit plugin allows integration of image editing libraries like Pintura to make modifications to image files loaded in FilePond.
-  FilePondPluginImageEdit
+  FilePondPluginImageEdit,
+
+  // The File Metadata plugin makes it possible to add initial metadata to file objects without using the file item setMetadata method.
+  FilePondPluginFileMetadata
 
   // encodes the file as base64 data
   //FilePondPluginFileEncode,
@@ -181,11 +185,12 @@ function App() {
             <h4 style={{ marginBottom: "2.2rem" }}>Upload skin lesion image</h4>
             <FilePond
               files={files}
+              name="files" /* sets the file input name, it's filepond by default */
               onupdatefiles={setFiles}
               allowMultiple={true}
               maxFiles={1}
-              //server="./api"
-
+              server="http://localhost:8080/predictmeta"
+              //server="http://172.17.0.2:8080//upload"
               //allowImageCrop={true}
 
               //allowFileTypeValidation={true}
@@ -198,6 +203,12 @@ function App() {
               imageResizeTargetHeight={256}
               imageResizeUpscale={true}
               imageResizeMode={"cover"}
+              allowFileMetadata={true}
+              fileMetadataObject={{
+                age: "30",
+                location: "upper extremity",
+                sex: "male",
+              }}
               // insert img bellow
               //onpreparefile={(file, output) => {
               //  const img = document.createElement("img");
@@ -211,7 +222,6 @@ function App() {
                 cropMinImageWidth: 100,
                 cropMinImageHeight: 100,
               })}
-              name="files" /* sets the file input name, it's filepond by default */
               labelIdle='<span class="filepond--label-action">Select</span> your skin lesion image <br /> or drop it here!'
               //labelIdle= {iconImage()}
               credits={false}
@@ -223,6 +233,7 @@ function App() {
           <Button
             onClick={handlePredict}
             style={{ fontFamily: "'Comfortaa', cursive" }}
+            disabled
           >
             Predict
           </Button>
