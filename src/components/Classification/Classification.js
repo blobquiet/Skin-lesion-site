@@ -247,7 +247,7 @@ function App() {
               //server="http://172.17.0.2:8080/upload"
               //server="http://172.17.0.2:8080/predict"
               //server="http://172.17.0.2:8080/predict"
-              server="https://skinlesion-7jr3vz7j2a-ew.a.run.app/predict"
+              server="https://skindiagnosis-7jr3vz7j2a-ew.a.run.app/predict"
               //allowImageCrop={true}
 
               //allowFileTypeValidation={true}
