@@ -94,6 +94,14 @@ function App() {
     disabled = enabled;
     setEnabled(!disabled);
   };
+
+  const handleClick = (event) => {
+    // 👇️ refers to the image element
+    console.log(event.target);
+
+    console.log("Image clicked");
+  };
+
   var disabled = true;
   var pred = [];
   var predData = {
@@ -304,9 +312,38 @@ function App() {
               credits={false}
               //labelIdle= '<svg class="w-10 h-10 dark:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 14l9-5-9-5-9 5 9 5z"></path><path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"></path></svg>'
             />
+            {/*
+            <p>Or select one of the examples:</p>
+            <Row className="justify-content-center">
+              <Image
+                style={{
+                  borderRadius: "0.6em",
+                  width: "5.3em",
+                }}
+                src="https://mdbootstrap.com/img/new/fluid/city/055.webp"
+                thumbnail
+              ></Image>
+              <Image
+                style={{
+                  borderRadius: "0.6em",
+                  width: "5.3em",
+                }}
+                src="https://mdbootstrap.com/img/new/fluid/city/055.webp"
+                thumbnail
+                onClick={handleClick}
+              ></Image>
+              <Image
+                style={{
+                  borderRadius: "0.6em",
+                  width: "5.3em",
+                }}
+                src="https://mdbootstrap.com/img/new/fluid/city/055.webp"
+                thumbnail
+              ></Image>
+            </Row>*/}
           </Col>
         </Row>
-        <Row className="justify-content-center">
+        <Row className="justify-content-center" style={{ marginTop: "0.5em" }}>
           <Button
             onClick={handlePredict}
             style={{ fontFamily: "'Comfortaa', cursive" }}
