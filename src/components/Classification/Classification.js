@@ -34,7 +34,7 @@ import FilePondPluginImageTransform from "filepond-plugin-image-transform";
 import FilePondPluginImageEdit from "filepond-plugin-image-edit";
 import FilePondPluginFileMetadata from "filepond-plugin-file-metadata";
 //import FilePondPluginImageCrop from 'filepond-plugin-image-crop';
-//import FilePondPluginFileValidateType from 'filepond-plugin-image-validate-size';
+import FilePondPluginFileValidateType from "filepond-plugin-image-validate-size";
 //import FilePondPluginFileEncode from 'filepond-plugin-file-encode';
 
 import "filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css";
@@ -58,13 +58,13 @@ registerPlugin(
   FilePondPluginImageEdit,
 
   // The File Metadata plugin makes it possible to add initial metadata to file objects without using the file item setMetadata method.
-  FilePondPluginFileMetadata
+  FilePondPluginFileMetadata,
 
   // encodes the file as base64 data
   //FilePondPluginFileEncode,
 
   // validates files based on input type
-  //FilePondPluginFileValidateType,
+  FilePondPluginFileValidateType
 
   // crops the image to a certain aspect ratio
   //FilePondPluginImageCrop,
@@ -250,14 +250,13 @@ function App() {
               server="https://skindiagnosis-7jr3vz7j2a-ew.a.run.app/predict"
               //allowImageCrop={true}
 
-              //allowFileTypeValidation={true}
-              //accepted-file-types={['image/png', 'image/jpeg']}
-              //labelFileTypeNotAllowed='File of invalid type'
-
+              allowFileTypeValidation={true}
+              accepted-file-types={["image/png", "image/jpeg"]}
+              labelFileTypeNotAllowed="File of invalid type"
               allowReorder={true}
               allowImageResize={true}
-              imageResizeTargetWidth={256}
-              imageResizeTargetHeight={256}
+              imageResizeTargetWidth={224}
+              imageResizeTargetHeight={224}
               imageResizeUpscale={true}
               imageResizeMode={"cover"}
               allowFileMetadata={!enabled}
