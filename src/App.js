@@ -52,7 +52,7 @@ function App() {
           className={`animate__animated animate__bounce ${fadeClassOut} ${displayNone}`}
           style={{ fontSize: "2.5em", position: "absolute" }}
         >
-          First place in 2019 & 2020
+          First place in 2019 & third in 2020
           <br /> SIIM-ISIC skin lesion challenges
         </h1>
         <p
@@ -214,7 +214,7 @@ function App() {
                   marginTop: "1.8em",
                 }}
               >
-                David Dueñas
+                David D. Gaviria
               </h3>
               <p
                 style={{

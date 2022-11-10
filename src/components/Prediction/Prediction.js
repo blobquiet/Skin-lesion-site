@@ -1,7 +1,7 @@
 import React, { useRef, useState, useEffect } from "react";
 import "./Prediction.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Row, Col, Container, Button, Table} from "react-bootstrap";
+import { Row, Col, Container, Button, Table } from "react-bootstrap";
 import Plot from "react-plotly.js";
 import { useNavigate, useLocation } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
