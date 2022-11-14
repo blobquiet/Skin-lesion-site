@@ -159,7 +159,7 @@ function App() {
   return (
     <div
       className="Classification"
-      style={{ backgroundColor: backgroundColor }}
+      style={{ backgroundColor: backgroundColor, padding: "1.5em"}}
     >
       {/* <div className="loader-container">
       </div>*/}
@@ -190,7 +190,7 @@ function App() {
             top: "2em",
             left: "2em",
             color: "white",
-            paddingTop: "1.5em",
+            paddingTop: "1em",
           }}
         >
           <FontAwesomeIcon icon={faArrowLeft} />
