@@ -68,7 +68,7 @@ function App() {
       style={{ backgroundColor: backgroundColor, padding: "1.5em" }}
     >
       <h2
-        style={{ fontSize: "1.5em", position: "center", marginBottom: "0.5em" }}
+        style={{ fontSize: "1.5em", position: "center", marginBottom: "0.5em", padding: "1.5em" }}
       >
         Skin Lesion Classification demo
       </h2>
@@ -84,7 +84,7 @@ function App() {
         <a
           href=""
           onClick={handleBack}
-          style={{ position: "fixed", top: "2em", left: "2em", color: "white" }}
+          style={{ position: "fixed", top: "2em", left: "2em", color: "white", paddingTop: "1em" }}
         >
           <FontAwesomeIcon icon={faArrowLeft} />
         </a>

@@ -96,9 +96,6 @@ function App() {
   };
 
   const handleClick = (event) => {
-    // 👇️ refers to the image element
-    console.log(event.target);
-
     console.log("Image clicked");
   };
 
@@ -160,10 +157,17 @@ function App() {
   return (
     <div
       className="Classification"
-      style={{ backgroundColor: backgroundColor, padding: "1.5em" }}
+      style={{ backgroundColor: backgroundColor }}
     >
+      {/* <div className="loader-container">
+      </div>*/}
       <h2
-        style={{ fontSize: "1.5em", position: "center", marginBottom: "0.5em" }}
+        style={{
+          fontSize: "1.5em",
+          position: "center",
+          marginBottom: "0.5em",
+          paddingTop: "1.5em",
+        }}
       >
         Skin Lesion Classification Demo
       </h2>
@@ -179,7 +183,13 @@ function App() {
         <a
           href=""
           onClick={handleBack}
-          style={{ position: "fixed", top: "2em", left: "2em", color: "white" }}
+          style={{
+            position: "fixed",
+            top: "2em",
+            left: "2em",
+            color: "white",
+            paddingTop: "1.5em",
+          }}
         >
           <FontAwesomeIcon icon={faArrowLeft} />
         </a>
@@ -251,11 +261,24 @@ function App() {
               maxFiles={1}
               //server="http://localhost:8080/predictmeta"
               //server="http://localhost:8080/predict"
+              //server="http://localhost:8080/ttapredict"
+              //server={{
+              //url: "http://localhost:8080/ttapredict",
+              //onload: handleClick(),
+              //onload: handleClick()
+              //timeout: 25000,
+              //}}
               //server="http://localhost:8080/upload"
               //server="http://172.17.0.2:8080/upload"
               //server="http://172.17.0.2:8080/predict"
               //server="http://172.17.0.2:8080/predict"
-              server="https://skindiagnosis-7jr3vz7j2a-ew.a.run.app/predict"
+              //server="https://skindiagnosis-7jr3vz7j2a-ew.a.run.app/predict"
+              server={{
+                url: "https://skindiagnosis-7jr3vz7j2a-ew.a.run.app/ttapredict",
+                //onload: handleClick(),
+                //onload: handleClick()
+                timeout: 25000,
+              }}
               //allowImageCrop={true}
 
               allowFileTypeValidation={true}
@@ -275,7 +298,6 @@ function App() {
               }}
               onprocessfile={function(err, file) {
                 try {
-                  //handlePredict(); //only to predict after upload
                   const { serverId } = file;
                   const data = JSON.parse(serverId);
                   //console.log(data);
@@ -288,6 +310,7 @@ function App() {
                   predData.score = data.score;
                   setPredictor(false);
                   setPredictions(predData);
+                  //handlePredict(); //only to predict after upload
                 } catch (error) {}
                 //console.log("server id ", err, file.serverId);
                 //console.log("on process ", err, file)
@@ -343,6 +366,7 @@ function App() {
             </Row>*/}
           </Col>
         </Row>
+
         <Row className="justify-content-center" style={{ marginTop: "0.5em" }}>
           <Button
             onClick={handlePredict}

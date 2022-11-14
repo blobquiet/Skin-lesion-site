@@ -1,3 +1,13 @@
+.loader-container {
+  width: 100% !important;
+  height: 100vh !important;
+  position: fixed;
+  background: rgba(255, 255, 255, 0.3)
+      url("loading.gif") center
+      no-repeat;
+  z-index: 1;
+}
+
 .Classification {
     text-align: center;
     min-height: 100vh;
