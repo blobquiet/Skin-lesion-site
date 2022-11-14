@@ -142,6 +142,8 @@ function App() {
     "rgb(73, 178, 209)",*/
   ];
 
+  const [loading, setLoading] = useState(false);
+
   useEffect(() => {
     setBackgroundColor(bgColor[Math.floor(Math.random() * bgColor.length)]);
     setEnabled(disabled);
@@ -262,25 +264,20 @@ function App() {
               //server="http://localhost:8080/predictmeta"
               //server="http://localhost:8080/predict"
               //server="http://localhost:8080/ttapredict"
-              //server={{
-              //url: "http://localhost:8080/ttapredict",
-              //onload: handleClick(),
-              //onload: handleClick()
-              //timeout: 25000,
-              //}}
+              server={{
+                url: "http://localhost:8080/predict",
+                //onload: handleClick(),
+                //onload: handleClick()
+                timeout: 25000,
+              }}
               //server="http://localhost:8080/upload"
               //server="http://172.17.0.2:8080/upload"
               //server="http://172.17.0.2:8080/predict"
               //server="http://172.17.0.2:8080/predict"
               //server="https://skindiagnosis-7jr3vz7j2a-ew.a.run.app/predict"
-              server={{
-                url: "https://skindiagnosis-7jr3vz7j2a-ew.a.run.app/ttapredict",
-                //onload: handleClick(),
-                //onload: handleClick()
-                timeout: 25000,
-              }}
               //allowImageCrop={true}
-
+              labelFileProcessing={"Predicting"}
+              labelFileProcessingComplete={"Done!"}
               allowFileTypeValidation={true}
               accepted-file-types={["image/png", "image/jpeg"]}
               labelFileTypeNotAllowed="File of invalid type"
@@ -310,6 +307,7 @@ function App() {
                   predData.score = data.score;
                   setPredictor(false);
                   setPredictions(predData);
+                  setLoading(true);
                   //handlePredict(); //only to predict after upload
                 } catch (error) {}
                 //console.log("server id ", err, file.serverId);
@@ -366,16 +364,22 @@ function App() {
             </Row>*/}
           </Col>
         </Row>
-
-        <Row className="justify-content-center" style={{ marginTop: "0.5em" }}>
-          <Button
-            onClick={handlePredict}
-            style={{ fontFamily: "'Comfortaa', cursive" }}
-            disabled={predictor_disabler}
+        {loading ? (
+          <Row
+            className="justify-content-center"
+            style={{ marginTop: "0.5em" }}
           >
-            Predict
-          </Button>
-        </Row>
+            <Button
+              onClick={handlePredict}
+              style={{ fontFamily: "'Comfortaa', cursive" }}
+              disabled={predictor_disabler}
+            >
+              Show prediction
+            </Button>
+          </Row>
+        ) : (
+          <div></div>
+        )}
       </Container>
     </div>
   );
