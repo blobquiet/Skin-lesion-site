@@ -265,7 +265,7 @@ function App() {
               //server="http://localhost:8080/predict"
               //server="http://localhost:8080/ttapredict"
               server={{
-                url: "http://localhost:8080/predict",
+                url: "https://skindiagnosis-7jr3vz7j2a-ew.a.run.app/predict",
                 //onload: handleClick(),
                 //onload: handleClick()
                 timeout: 25000,
