@@ -70,7 +70,8 @@ function App() {
             <h2 style={{ marginBottom: "1em" }}>
               Superconverging Deep Learning Model for Skin Lesion Classification
             </h2>
-            <Row xs={1} md={3}>
+            <Row xs={1} md={2}>
+              {/* 
               <Col>
                 <a
                   style={{ color: "white" }}
@@ -100,10 +101,11 @@ function App() {
                   </p>
                 </a>
               </Col>
+              */}
               <Col>
                 <Link style={{ color: "white" }} to="/classification">
                   <Image
-                    width="180"
+                    width="130"
                     src="skin-icon.png"
                     title="Click here for online demo!"
                   />
