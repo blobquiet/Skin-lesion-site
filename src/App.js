@@ -179,43 +179,6 @@ function App() {
                   marginTop: "1.8em",
                 }}
               >
-                Petia Ivanona Radeva
-              </h3>
-              <p
-                style={{
-                  fontSize: "0.7em",
-                  fontWeight: "800",
-                  textAlign: "center",
-                  marginTop: "0.5em",
-                  paddingLeft: "0.5em",
-                  paddingRight: "0.5em",
-                }}
-              >
-                Universitat de Barcelona
-              </p>
-            </div>
-            <p
-              className="animate__animated animate__delay-4s animate__fadeIn"
-              style={{
-                fontSize: ".85em",
-                fontWeight: "20",
-                textAlign: "center",
-                color: "black",
-              }}
-            >
-              radevap@gmail.com
-            </p>
-          </Col>
-          <Col>
-            <div>
-              <h3
-                style={{
-                  fontSize: "1em",
-                  fontWeight: "800",
-                  textAlign: "center",
-                  marginTop: "1.8em",
-                }}
-              >
                 David D. Gaviria
               </h3>
               <p
@@ -278,6 +241,43 @@ function App() {
               }}
             >
               m.kamal.sarker@gmail.com
+            </p>
+          </Col>
+          <Col>
+            <div>
+              <h3
+                style={{
+                  fontSize: "1em",
+                  fontWeight: "800",
+                  textAlign: "center",
+                  marginTop: "1.8em",
+                }}
+              >
+                Petia Ivanona Radeva
+              </h3>
+              <p
+                style={{
+                  fontSize: "0.7em",
+                  fontWeight: "800",
+                  textAlign: "center",
+                  marginTop: "0.5em",
+                  paddingLeft: "0.5em",
+                  paddingRight: "0.5em",
+                }}
+              >
+                Universitat de Barcelona
+              </p>
+            </div>
+            <p
+              className="animate__animated animate__delay-4s animate__fadeIn"
+              style={{
+                fontSize: ".85em",
+                fontWeight: "20",
+                textAlign: "center",
+                color: "black",
+              }}
+            >
+              radevap@gmail.com
             </p>
           </Col>
         </Row>
