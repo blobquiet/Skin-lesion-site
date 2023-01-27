@@ -205,7 +205,7 @@ function App() {
                 <Form.Check
                   style={{ fontSize: "0.7em" }}
                   type="checkbox"
-                  label="Use matadata"
+                  label="Use matedata"
                   onChange={handleChange}
                 />
               </Form.Group>
